@@ -10,7 +10,7 @@ def build_poly_regressors(x, poly_order=1):
             
     return poly_regressors
 
-def gd(x, y, num_epochs=100, alpha=0.001, w_initial=None, poly_order=1, lamb=None, build_regressors=True):
+def gd(x, y, num_epochs=100, alpha=0.001, w_initial=None, poly_order=1, lamb=None, build_regressors=False):
         
     if build_regressors:
         x_matrix = build_poly_regressors(x, poly_order=poly_order)    
@@ -34,7 +34,7 @@ def gd(x, y, num_epochs=100, alpha=0.001, w_initial=None, poly_order=1, lamb=Non
             
     return {'w': w, 'mse_history': mse_history}
     
-def lms(x, y, num_epochs=100, alpha=0.001, w_initial=None, poly_order=1, lamb=None, build_regressors=True):
+def lms(x, y, num_epochs=100, alpha=0.001, w_initial=None, poly_order=1, lamb=None, build_regressors=False):
     
     if build_regressors:
         x_matrix = build_poly_regressors(x, poly_order=poly_order)    
@@ -78,7 +78,7 @@ def ols(x, y, poly_order=1, lamb=None, build_regressors=True):
     
     return {'w': w, 'mse': mse}
 
-def predict(w, x, y=None, poly_order=1, build_regressors=True):
+def predict(w, x, y=None, poly_order=1, build_regressors=False):
         
     if build_regressors:
         x_matrix = build_poly_regressors(x, poly_order=poly_order)    

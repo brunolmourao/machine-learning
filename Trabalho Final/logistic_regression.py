@@ -18,7 +18,7 @@ def softmax_function(W, x):
 def softmax_loss(y, pred):
     return - np.sum(y * np.log(pred)) / y.shape[0]
         
-def gd(x, y, num_epochs=100, alpha=0.001, w_initial=None, poly_order=1, build_regressors=False, compute_loss=True):
+def gd(x, y, num_epochs=100, alpha=0.001, w_initial=None, poly_order=1, build_regressors=False, compute_loss=False):
         
     if build_regressors:
         x_matrix = lin.build_poly_regressors(x, poly_order=poly_order)    
@@ -53,7 +53,7 @@ def gd(x, y, num_epochs=100, alpha=0.001, w_initial=None, poly_order=1, build_re
     else:
         return {'w': w}
     
-def lms(x, y, num_epochs=100, alpha=0.001, w_initial=None, poly_order=1, build_regressors=True, compute_loss=True):
+def lms(x, y, num_epochs=100, alpha=0.001, w_initial=None, poly_order=1, build_regressors=True, compute_loss=False):
     
     if build_regressors:
         x_matrix = lin.build_poly_regressors(x, poly_order=poly_order)    
@@ -90,7 +90,7 @@ def lms(x, y, num_epochs=100, alpha=0.001, w_initial=None, poly_order=1, build_r
     else:
         return {'w': w}
 
-def predict(w, x, y=None, poly_order=1, build_regressors=True):
+def predict(w, x, y=None, poly_order=1, build_regressors=False):
         
     if build_regressors:
         x_matrix = lin.build_poly_regressors(x, poly_order=poly_order)    
