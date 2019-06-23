@@ -43,7 +43,7 @@ def plot_loss_path(loss, title=None, save=False, file_name='img.png'):
     
     if save:
         plt.savefig(file_name, dpi=dpi)
-        
+    plt.savefig('LG_1.png')    
     plt.show()
     
 def plot_regression_line(x, y, x_new, w, title=None, save=False,
